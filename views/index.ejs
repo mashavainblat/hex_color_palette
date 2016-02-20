@@ -2,14 +2,27 @@
 <html>
 <head>
 	<title>Hex Colors</title>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
 </head>
-<body>
+<body id="index">
 
 <h1>Hex colors</h1>
 
+<nav>
+	<section id="logoContainer">
+		<img src="./img/hashtag.png">
+	</section>
+	<section id="palettesContainer">
+		<a href="#">Palettes</a>
+	</section>
+	<section id="collection">
+		<a href="#">Collection</a>
+	</section>
+</nav>
+
 <% for (var i = 0; i<colors.length; i++){ %>
-	<div class="hexColor">
-		<li><%=colors[i].hex%></li> <!-- NEED THIS TO BE ACCESSED IN CSS? -->
+	<div class="hexColor" style="background-color:<%=colors[i].hex%>">
+		<p class="hexColorCode"><%=colors[i].hex%></p> <!-- NEED THIS TO BE ACCESSED IN CSS? -->
 	</div>
 <% } %>
 

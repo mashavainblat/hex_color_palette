@@ -1,0 +1,38 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.hexColor{
+	width:8%;
+	height:8em;
+	display:inline-block;
+}
+
+
+
+/*********************************************/
+/**************    NAVIGATION   **************/
+/*********************************************/
+
+
+
+nav{
+	/*padding:10px;*/
+}
+
+nav section{
+	display:inline-block;
+	width:33%;
+}
+
+nav section:nth-child(2), nav section:nth-child(3){
+	text-align: center;
+}
+
+
+nav img{
+	width:40px;
+	max-width:100%;
+	margin:0px 20px;
+}
