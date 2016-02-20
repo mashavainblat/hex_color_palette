@@ -6,19 +6,11 @@
 </head>
 <body id="index">
 
-<h1>Hex colors</h1>
+<% include ./partials/navigation_login.ejs %>
 
-<nav>
-	<section id="logoContainer">
-		<img src="./img/hashtag.png">
-	</section>
-	<section id="palettesContainer">
-		<a href="#">Palettes</a>
-	</section>
-	<section id="collection">
-		<a href="#">Collection</a>
-	</section>
-</nav>
+<div id="signUpOverlay">
+	<form action="/user/"
+</div>
 
 <% for (var i = 0; i<colors.length; i++){ %>
 	<div class="hexColor" style="background-color:<%=colors[i].hex%>">

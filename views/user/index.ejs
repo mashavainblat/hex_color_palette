@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hex Colors</title>
+	<link rel="stylesheet" type="text/css" href="./css/main.css">
+</head>
+<body id="index">
+
+<% include ../partials/navigation_login.ejs %>
+
+<div id="signUpOverlay">
+	<form action="/users" method="POST">
+		<input type="text" name="username" placeholder="username">
+		<input type="text" name="email" placeholder="email">
+		<input type="text" name="password" placeholder="password">
+		<button>Sign Up</button>
+	</form>
+</div>
+
+<% for (var i = 0; i<colors.length; i++){ %>
+	<div class="hexColor" style="background-color:<%=colors[i].hex%>">
+		<p class="hexColorCode"><%=colors[i].hex%></p> <!-- NEED THIS TO BE ACCESSED IN CSS? -->
+	</div>
+<% } %>
+
+</body>
+</html>
