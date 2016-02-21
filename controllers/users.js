@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var passport = require("passport");
+// var passport = require("passport");
 
 var User = require("../models/user_model.js");
 // var Collection = require("../models/collection_model.js");
@@ -9,31 +9,39 @@ var hexColors = require("../models/hex_colors.js");
 
 //INDEX GET
 router.get("/", function(req, res){
-	res.locals.login = req.isAuthenticated();
+	// res.locals.login = req.isAuthenticated();
 	User.find(function(error, users){
-		res.render("user/index.ejs", {users:users});		
+		res.render("user/index.ejs", {colors:hexColors, users:users});		
+	});
+});
+
+//INDEX INFO FROM DB
+router.get("/json", function(req, res){
+	user.find(function(error, user){
+		res.send(user);
+	});
+});
+
+// SHOW GET
+router.get("/:id", function(req, res){
+	User.findById(req.params.id, function(error, user){
+		res.render("user/show.ejs", {colors:hexColors, user:user});
 	})
 });
 
+// CREATE COLLECTION/PALETTE
+
+// CREATE USER
+router.post("/", function(req, res){
+	res.redirect("/users/:id")
+});
 
 //NEW GET
 router.get("/", function(req, res){
 	res.render("user/index.ejs", {colors:hexColors});
 });
 
-// USER CREATE - SIGNUP
-router.post("/", passport.authenticate("local-signup", {
-		failureRedirect: "/users"}),
-		function(req, res){
-			console.log(req.body)
-			res.redirect("/users/", req.user.id);
-		});
 
-// //SHOW GET
-router.get("/:id", function(req, res){
-	res.render("user/show.ejs", {colors:hexColors});
-});
-//PROFILE SECTION
 
 
 //DESTROY
@@ -41,14 +49,14 @@ router.get("/:id", function(req, res){
 
 
 //MIDDLEWARE
-function isLoggedIn(req, res, next) {
-	console.log('isLoggedIn middleware');
-  if (req.isAuthenticated()) {
-  	return next(); 
-  } else {
-  	res.redirect('/users');
-  }
-}
+// function isLoggedIn(req, res, next) {
+// 	console.log('isLoggedIn middleware');
+//   if (req.isAuthenticated()) {
+//   	return next(); 
+//   } else {
+//   	res.redirect('/users');
+//   }
+// }
 
 
 module.exports = router;
