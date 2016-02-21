@@ -51,3 +51,32 @@ nav img{
 	max-width:100%;
 	margin:0px 20px;
 }
+
+
+/*********************************************/
+/***************    USER SHOW   **************/
+/*********************************************/
+
+#hexColorsContainer{
+	width:75%;
+	display:inline-block;
+	float:left;
+}
+
+#collectionInfo{
+	width:25%;
+	display:inline-block;
+}
+
+#createNewPalette, #myPalettesContainer{
+	border-top:solid 1px #ccc;
+}
+
+
+
+
+
+
+
+
+

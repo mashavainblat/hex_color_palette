@@ -1,14 +1,14 @@
 var mongoose = require("mongoose");
 var bcrypt = require("bcrypt-nodejs");
-// var collectionSchema = require("./collection_model").schema;
+var collectionsSchema = require("./collection_model").schema;
 // var paletteSchema = require("./palette_model").schema;
 
 var userSchema = mongoose.Schema({
 
 	username: {type:String, required: true, unique: true},
 	email: {type:String},
-	password: {type:String, required: true}
-	// collection: [collectionSchema]
+	password: {type:String, required: true},
+	collections: [collectionsSchema]
 });
 
 userSchema.methods.generateHash = function() {
