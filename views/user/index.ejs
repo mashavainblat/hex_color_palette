@@ -17,11 +17,15 @@
 	</form>
 </div>
 
-<% for (var i = 0; i<colors.length; i++){ %>
-	<div class="hexColor" style="background-color:<%=colors[i].hex%>">
-		<p class="hexColorCode"><%=colors[i].hex%></p> <!-- NEED THIS TO BE ACCESSED IN CSS? -->
-	</div>
-<% } %>
+<div id="logInOverlay">
+	<form action="/users" method="POST">
+		<input type="text" name="username" placeholder="username">
+		<input type="text" name="password" placeholder="password">
+		<button>Log In</button>
+	</form>
+</div>
+
+
 
 </body>
 </html>

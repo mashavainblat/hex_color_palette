@@ -9,35 +9,46 @@ var hexColors = require("../models/hex_colors.js");
 
 //INDEX GET
 router.get("/", function(req, res){
-	// User.find(function(error, data){
-		res.render("user/index.ejs", {colors:hexColors});		
-	// })
+	res.locals.login = req.isAuthenticated();
+	User.find(function(error, users){
+		res.render("user/index.ejs", {users:users});		
+	})
 });
 
-// USER CREATE - SIGNUP
-router.get("/", passport.authenticate("local-signup", {
-		failureRedirect: "/users"
-	}), function(req, res){
-	res.redirect("/users/", req.user.id);
-});
 
 //NEW GET
 router.get("/", function(req, res){
 	res.render("user/index.ejs", {colors:hexColors});
 });
 
-//PROFILE SECTION
-//SHOW GET
+// USER CREATE - SIGNUP
+router.post("/", passport.authenticate("local-signup", {
+		failureRedirect: "/users"}),
+		function(req, res){
+			console.log(req.body)
+			res.redirect("/users/", req.user.id);
+		});
+
+// //SHOW GET
 router.get("/:id", function(req, res){
 	res.render("user/show.ejs", {colors:hexColors});
 });
+//PROFILE SECTION
 
-//CREATE POST
-router.post("/:id", function(req, res){
-	console.log(req.params.id)
-		res.redirect("/users/" + user.id);	
-});
 
 //DESTROY
+
+
+
+//MIDDLEWARE
+function isLoggedIn(req, res, next) {
+	console.log('isLoggedIn middleware');
+  if (req.isAuthenticated()) {
+  	return next(); 
+  } else {
+  	res.redirect('/users');
+  }
+}
+
 
 module.exports = router;

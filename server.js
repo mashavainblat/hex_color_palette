@@ -8,6 +8,8 @@ var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var mongoose = require("mongoose");
 var passport = require("passport");
+var passportLocal = require("passport-local");
+var bcrypt = require("bcrypt-nodejs");
 var session = require("express-session");
 
 //colors
@@ -24,6 +26,14 @@ app.use(methodOverride("_method"));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride("_method"));
+app.use(session({secret: "string"}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(function(req, res, next) {
+ res.locals.login = req.isAuthenticated();
+ next();
+});
 
 require("./config/passport.js")(passport)
 
@@ -47,4 +57,4 @@ mongoose.connection.once("open", function(){
 		console.log("Listening on port: " + port);
 		console.log("==========================");
 	});
-})
+});
