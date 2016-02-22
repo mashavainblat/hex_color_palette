@@ -22,6 +22,14 @@ router.get("/json", function(req, res){
 	});
 });
 
+// ==============================
+// 			  LOGOUT
+// ==============================
+router.get("/logout", function(req, res){
+	req.logout();
+	res.redirect("/users");
+})
+
 // SHOW GET
 router.get("/:id", function(req, res){
 	User.findById(req.params.id, function(error, user){
@@ -60,6 +68,8 @@ router.post("/", passport.authenticate("local-signup", {
 	failureRedirect: "/users"}), 
 	function(req, res){
 		//successful login/signup redirect to show page
+		console.log("================================")
+		console.log("persisting req.user " + req.user)
 		res.redirect("/users/" + req.user.id)
 	});
 
@@ -77,6 +87,14 @@ router.post("/", passport.authenticate("local-signup", {
 // ==============================
 // 			   LOGIN
 // ==============================
+
+router.post("/login", passport.authenticate("local-login", {
+	failureRedirect: "/users"}),
+	function(req, res){
+		res.redirect("/users/" + req.user.id)
+	}
+);
+
 
 
 //NEW GET

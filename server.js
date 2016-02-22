@@ -26,14 +26,14 @@ app.use(methodOverride("_method"));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(methodOverride("_method"));
-// app.use(session({secret: "string"}));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(session({secret: "string"}));
+app.use(passport.initialize());
+app.use(passport.session());
 
-// app.use(function(req, res, next) {
-//  res.locals.login = req.isAuthenticated();
-//  next();
-// });
+app.use(function(req, res, next) {
+ res.locals.login = req.isAuthenticated();
+ next();
+});
 
 require("./config/passport.js")(passport)
 
