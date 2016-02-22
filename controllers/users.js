@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-// var passport = require("passport");
+var passport = require("passport");
 
 var User = require("../models/user_model.js");
 var Collection = require("../models/collection_model.js");
@@ -31,7 +31,7 @@ router.get("/:id", function(req, res){
 
 // CREATE PALETTE
 
-// CREATE COLLECTION
+//CREATE COLLECTION
 router.post("/:id/newcollection", function(req, res){
 	//after user is created, find by ID
 	User.findById(req.params.id, function(error, user){
@@ -48,16 +48,36 @@ router.post("/:id/newcollection", function(req, res){
 	})
 })
 
+
+
 // CREATE USER
-router.post("/", function(req, res){
-	//create new user based on input content aka req.body
-	User.create(req.body, (function(error, user){
-		console.log("USER CREATED");
-		console.log("The current user's name is: " + user.username);
-		//redirect to users show page
-		res.redirect("/users/" + user.id)
-	}))
-});
+
+// ==============================
+// 			   SIGNUP
+// ==============================
+
+router.post("/", passport.authenticate("local-signup", {
+	failureRedirect: "/users"}), 
+	function(req, res){
+		//successful login/signup redirect to show page
+		res.redirect("/users/" + req.user.id)
+	});
+
+// router.post("/", function(req, res){
+// 	//create new user based on input content aka req.body
+// 	User.create(req.body, (function(error, user){
+// 		console.log("USER CREATED");
+// 		console.log("The current user's name is: " + user.username);
+// 		//redirect to users show page
+// 		res.redirect("/users/" + user.id)
+// 	}))
+// });
+
+
+// ==============================
+// 			   LOGIN
+// ==============================
+
 
 //NEW GET
 router.get("/", function(req, res){
@@ -72,14 +92,16 @@ router.get("/", function(req, res){
 
 
 //MIDDLEWARE
-// function isLoggedIn(req, res, next) {
-// 	console.log('isLoggedIn middleware');
-//   if (req.isAuthenticated()) {
-//   	return next(); 
-//   } else {
-//   	res.redirect('/users');
-//   }
-// }
+function isLoggedIn(req, res, next) {
+	console.log('isLoggedIn middleware');
+	// if user is authenticated in the session, carry on
+	if (req.isAuthenticated()) {
+		return next(); 
+	// if they aren't, redirect to home page aka /user route
+	} else {
+		res.redirect('/users');
+	}
+}
 
 
 module.exports = router;

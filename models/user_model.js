@@ -11,9 +11,13 @@ var userSchema = mongoose.Schema({
 	collections: [collectionsSchema]
 });
 
-userSchema.methods.generateHash = function() {
-    return bcrypt.hashSync(this.password, bcrypt.genSaltSync(8), null);
-} // this is the method to imply the bcrypt shit
+// ===================================
+// 				METHODS
+// ===================================
+
+userSchema.methods.generateHash = function(password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+}
 
 userSchema.methods.validPassword = function(password) {
    return bcrypt.compareSync(password, this.password);
