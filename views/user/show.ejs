@@ -3,15 +3,20 @@
 <head>
 	<title>Hex Colors</title>
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
 </head>
 <body id="userShow">
 
 <% include ../partials/navigation_user.ejs %>
 
+
+<!-- ALL HEX COLORS -->
+
 <div id="hexColorsContainer">
 	<% for (var i = 0; i<colors.length; i++){ %>
-		<div class="hexColor" style="background-color:<%=colors[i].hex%>">
-			<p class="hexColorCode"><%=colors[i].hex%></p> <!-- NEED THIS TO BE ACCESSED IN CSS? -->
+		<div onclick="addToPalette(this)" id="<%=colors[i].hex%>" class="hexColor" style="background-color:<%=colors[i].hex%>" >
+			<p id="hexColorCode"><%=colors[i].hex%></p> <!-- NEED THIS TO BE ACCESSED IN CSS? -->
 		</div>
 	<% } %>
 </div>
@@ -20,7 +25,9 @@
 		<h4>Create new palette</h4>
 		<form action="/users/<%= user.id %>/newcollection" method="POST">
 			<input type="text" name="name" placeholder="Palette name">
-				<div id ="createdPaletteContainer">
+			<!-- <input type="color" name="palette"> -->
+			<input type="color" name="palette" value="#333333">
+				<div id="newPaletteContainer">
 					<li>HexColor</li> <!-- perhaps loop through clicks? -->
 				</div>
 			<button>Create</button>
@@ -31,8 +38,9 @@
 
 		<% for(var i = 0; i<user.collections.length; i++){ %>
 			<p class="paletteName"><%= user.collections[i].name %>
-				
-	<!-- 			<form action="/users/<%= user.id %>?_method=DELETE" method="POST">
+
+			<!-- DELETE? -->	
+			<!-- <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
 					<input type="hidden" name="palette" value="<%= user.collections[i].id %>"/>
 					<button>Delete</button>
 				</form>  -->
