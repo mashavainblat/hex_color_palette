@@ -27,7 +27,7 @@
 		</form>
 	</div>
 	<div id="myPalettesContainer">
-		<h4>My Palettes</h4>
+		<h4><%= user.username %>'s Palettes</h4>
 
 		<% for(var i = 0; i<user.collections.length; i++){ %>
 			<p class="paletteName"><%= user.collections[i].name %>

@@ -7,10 +7,10 @@ var port = process.env.PORT || 3000;
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var mongoose = require("mongoose");
-// var passport = require("passport");
-// var passportLocal = require("passport-local");
-// var bcrypt = require("bcrypt-nodejs");
-// var session = require("express-session");
+var passport = require("passport");
+var passportLocal = require("passport-local");
+var bcrypt = require("bcrypt-nodejs");
+var session = require("express-session");
 
 //colors
 var hexColors = require("./models/hex_colors.js");
@@ -35,12 +35,12 @@ app.use(methodOverride("_method"));
 //  next();
 // });
 
-// require("./config/passport.js")(passport)
+require("./config/passport.js")(passport)
 
 //CONTROLLERS
 var usersController = require("./controllers/users.js");
 // var collectionController = require("./controllers/collections.js");
-// var palettersController = require("./controllers/palettes.js");
+var palettesController = require("./controllers/palettes.js");
 
 app.use("/users", usersController);
 // app.use("/collection", collectionController);

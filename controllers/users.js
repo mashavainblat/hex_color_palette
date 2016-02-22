@@ -53,6 +53,7 @@ router.post("/", function(req, res){
 	//create new user based on input content aka req.body
 	User.create(req.body, (function(error, user){
 		console.log("USER CREATED");
+		console.log("The current user's name is: " + user.username);
 		//redirect to users show page
 		res.redirect("/users/" + user.id)
 	}))
