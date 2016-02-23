@@ -44,7 +44,7 @@ var palettesController = require("./controllers/palettes.js");
 
 app.use("/users", usersController);
 // app.use("/collection", collectionController);
-// app.use("palletes", palettesController);
+app.use("/palettes", palettesController);
 
 app.get("/", function(req, res){
 	res.redirect("/users");

@@ -5,8 +5,10 @@ var Collection = require("../models/collection_model.js");
 
 //INDEX
 router.get("/", function(req, res){
-	res.send("All Palette's page")
-})
+	Collection.find(function(error, palettes){
+		res.render("palettes/index.ejs", {palettes:palettes})
+	});
+});
 
 
 module.exports = router;
