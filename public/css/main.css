@@ -16,9 +16,10 @@
 }
 
 .hexColor{
-	width:8%;
-	height:8em;
+	width:10%;
+	height:10em;
 	display:inline-block;
+	float:left;
 }
 
 
@@ -70,6 +71,7 @@ nav img{
 
 #createNewPalette, #myPalettesContainer{
 	border-top:solid 1px #ccc;
+	padding:20px;
 }
 
 
@@ -84,6 +86,17 @@ nav img{
 	height:20px;
 }
 
+.palette{
+	display:block;
+	padding:10px;
+}
+
+.paletteColor{
+	width:30px;
+	height:25px;
+	float:left;
+	margin:5px 5px 0px 0px;
+}
 
 
 

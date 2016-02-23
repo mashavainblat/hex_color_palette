@@ -40,9 +40,7 @@ console.log("-----")
 		<form id ="createPaletteForm" action="/users/<%= user.id %>/newcollection" method="POST">
 			<input type="text" name="name" placeholder="Palette name">
 			<!-- <input type="color" name="palette"> -->
-				<div id="newPaletteContainer">
-					<li>HexColor</li> <!-- perhaps loop through clicks? -->
-				</div>
+
 			<button>Create</button>
 		</form>
 	</div>
@@ -50,8 +48,17 @@ console.log("-----")
 		<h4><%= user.username %>'s Palettes</h4>
 
 		<% for(var i = 0; i<user.collections.length; i++){ %>
+			<div class="palette">
 			<p class="paletteName"><%= user.collections[i].name %>
 
+			<% for(var j=0; j<user.collections[i].palette.length; j++){ %>
+
+				<div class="paletteColor" style="background-color:<%=user.collections[i].palette[j]%>"></div>
+				
+				<!-- <br> -->
+
+				
+			<% } %> <!-- end palette[j] loop -->
 			<!-- DELETE? -->	
 			<!-- <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
 					<input type="hidden" name="palette" value="<%= user.collections[i].id %>"/>
@@ -59,9 +66,11 @@ console.log("-----")
 				</form>  -->
 
 			</p>
-		<% } %>
+		</div>
+		<br>
+		<% } %> <!-- end collection[i] loop -->
 
-	</div>
+	</div> <!-- END myPalettesContainer -->
 
 	<div class="logOut">
 		<a href="/users/logout">Log out</a>

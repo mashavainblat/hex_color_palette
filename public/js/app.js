@@ -6,15 +6,17 @@
 
 	$('.hexColor').click(function(){ 
 		console.log("you clicked " + $(this).attr('id'));
+		
+		//HEX CODE OF CLICKED COLOR
 		var hexCode = $(this).attr('id');
-		var createNewPalette = document.getElementById("createPaletteForm");
-		console.log(createNewPalette);
+		var createPaletteForm = document.getElementById("createPaletteForm");
+		console.log(createPaletteForm);
 
 		var input = document.createElement("input");
 		input.type="color";
 		input.name="palette";
 		input.value=hexCode;
-		createNewPalette.appendChild(input);
+		createPaletteForm.appendChild(input);
 	
 	}); 
 
