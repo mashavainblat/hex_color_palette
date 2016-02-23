@@ -37,9 +37,7 @@ router.get("/:id", function(req, res){
 	})
 });
 
-// CREATE PALETTE
-
-//CREATE COLLECTION
+//CREATE PALETTE IN COLLECTION
 router.post("/:id/newcollection", function(req, res){
 	//after user is created, find by ID
 	User.findById(req.params.id, function(error, user){
@@ -48,7 +46,11 @@ router.post("/:id/newcollection", function(req, res){
 		//save req.body(input content)
 		collections.save(function(error, collection){
 			//push req.body into collections array of user schema
+			console.log("========================");
+			console.log(collection.palette)
+			console.log("========================");
 			user.collections.push(collection);
+			collections.palette.push(collection.palette);
 			user.save(function(error){
 				res.redirect("/users/" + req.params.id);
 			})

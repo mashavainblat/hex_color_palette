@@ -37,10 +37,9 @@ console.log("-----")
 <div id="collectionInfo">
 	<div id="createNewPalette">
 		<h4>Create new palette</h4>
-		<form action="/users/<%= user.id %>/newcollection" method="POST">
+		<form id ="createPaletteForm" action="/users/<%= user.id %>/newcollection" method="POST">
 			<input type="text" name="name" placeholder="Palette name">
 			<!-- <input type="color" name="palette"> -->
-			<input type="color" name="palette" value="#333333">
 				<div id="newPaletteContainer">
 					<li>HexColor</li> <!-- perhaps loop through clicks? -->
 				</div>
