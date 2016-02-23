@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>All Palettes</title>
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
 </head>
-<body>
+<body id="palettesIndex">
 
-<
+<% include ../partials/navigation_user.ejs %>
+
+
+<% for (var i=0; i<palettes.length;i++){ %>
+	<div class="paletteContainer">
+	<h4 class="paletteName"><%= palettes[i].name %></h4>
+		<% for (var j=0; j<palettes[i].palette.length;j++){ %>
+			
+			<div class="palette">
+				<div class="paletteColor" style="background-color:<%= palettes[i].palette[j] %>"></div>
+				<li><%= palettes[i].palette[j] %></li>
+			</div>
+		<% } %>
+
+	</div>
+<% } %>
+
 
 </body>
 </html>
