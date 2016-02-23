@@ -22,6 +22,9 @@
 	float:left;
 }
 
+.bold{
+	font-family:"MontserratBold";
+}
 
 
 /*********************************************/
@@ -51,6 +54,15 @@ nav img{
 	width:40px;
 	max-width:100%;
 	margin:0px 20px;
+}
+
+
+h4{
+	text-transform: uppercase;
+}
+
+.bodyCopy{
+	font-size:.9em;
 }
 
 
@@ -88,7 +100,7 @@ nav img{
 
 .palette{
 	display:block;
-	padding:10px;
+	padding:10px 10px 10px 0px;
 }
 
 .paletteColor{

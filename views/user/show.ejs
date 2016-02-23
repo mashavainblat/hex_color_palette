@@ -36,16 +36,18 @@ console.log("-----")
 </div>
 <div id="collectionInfo">
 	<div id="createNewPalette">
-		<h4>Create new palette</h4>
+		<h4 class="bold">Create new palette</h4>
+		<p class="bodyCopy">Click on color to add to your palette</p>
+		<p class="bodyCopy">Add palette name</p>
 		<form id ="createPaletteForm" action="/users/<%= user.id %>/newcollection" method="POST">
-			<input type="text" name="name" placeholder="Palette name">
+			<input type="text" name="name" placeholder="Palette name"><br>
 			<!-- <input type="color" name="palette"> -->
 
-			<button>Create</button>
+			<button id="savePaletteButton">Save</button><br>
 		</form>
 	</div>
 	<div id="myPalettesContainer">
-		<h4><%= user.username %>'s Palettes</h4>
+		<h4 class="bold"><%= user.username %>'s Palettes</h4>
 
 		<% for(var i = 0; i<user.collections.length; i++){ %>
 			<div class="palette">

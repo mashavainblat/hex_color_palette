@@ -10,13 +10,18 @@
 		//HEX CODE OF CLICKED COLOR
 		var hexCode = $(this).attr('id');
 		var createPaletteForm = document.getElementById("createPaletteForm");
+		var savePaletteButton = document.getElementById("savePaletteButton");
+		var lineBreak = document.createElement("br");
+		console.log(lineBreak)
 		console.log(createPaletteForm);
 
 		var input = document.createElement("input");
 		input.type="color";
 		input.name="palette";
 		input.value=hexCode;
-		createPaletteForm.appendChild(input);
+
+		createPaletteForm.insertBefore(input, createPaletteForm.firstChild);
+		// input.appendChild(lineBreak)
 	
 	}); 
 
