@@ -9,7 +9,7 @@ var hexColors = require("../models/hex_colors.js");
 
 //INDEX GET
 router.get("/", function(req, res){
-	// res.locals.login = req.isAuthenticated();
+	res.locals.login = req.isAuthenticated();
 	User.find(function(error, users){
 		res.render("user/index.ejs", {colors:hexColors, users:users});		
 	});
@@ -32,6 +32,7 @@ router.get("/logout", function(req, res){
 
 // SHOW GET
 router.get("/:id", function(req, res){
+	// req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
 	User.findById(req.params.id, function(error, user){
 		res.render("user/show.ejs", {colors:hexColors, user:user});
 	})
@@ -106,8 +107,52 @@ router.get("/", function(req, res){
 
 
 
+// 
 
 //DESTROY
+// router.delete("/:id", function(req, res){
+// 	console.log("delete route accessed")
+
+// 	User.find(req.params.id, function(error, user){
+		
+// 		// console.log(user.collections[0].palette)
+
+// 		console.log(req.params.id)
+
+// 		/*user.collections[0].palette*/
+// 	});
+// });
+
+// router.delete('/:uid/:cid', function(req,res){
+// 	User.findById(req.params.uid,function(err,data){
+
+// 		data.collections.forEach(function(i){
+// 			if(i.id === req.params.cid){
+// 				i.pop()
+// 			}
+// 		})
+// 		data.save(function(){});
+// 	});
+// });
+
+router.delete("/:uid/:cid", function(req, res){
+	console.log("delete route accessed")
+	console.log(req.params.id)
+	var id = req.params.uid;
+	var collectionId = req.params.cid;
+
+	User.update({_id:req.params.id}, {$pull:{"collections":{ _id:collectionId } }}, function(error, user){
+		// User.pull({}, function(error, user){
+				
+		// })
+		console.log("hopefully deleting")
+		res.redirect("/users/" + req.params.id)
+		// console.log(user.collections[0].palette)
+
+
+		/*user.collections[0].palette*/
+	});
+});
 
 
 
@@ -119,7 +164,7 @@ function isLoggedIn(req, res, next) {
 		return next(); 
 	// if they aren't, redirect to home page aka /user route
 	} else {
-		res.redirect('/users');
+		res.redirect('/users/' + req.user.id);
 	}
 }
 

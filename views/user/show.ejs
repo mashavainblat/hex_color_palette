@@ -51,23 +51,26 @@ console.log("-----")
 
 		<% for(var i = 0; i<user.collections.length; i++){ %>
 			<div class="palette">
-			<p class="paletteName"><%= user.collections[i].name %>
+				<p class="paletteName"><%= user.collections[i].name %></p>
+					<form action="/users/<%= user.id %>?_method=DELETE" method="POST" type="hidden">
+						<button>Delete</button>
+					</form>
 
-			<% for(var j=0; j<user.collections[i].palette.length; j++){ %>
+				<% for(var j=0; j<user.collections[i].palette.length; j++){ %>
 
-				<div class="paletteColor" style="background-color:<%=user.collections[i].palette[j]%>"></div>
-				
-				<!-- <br> -->
+					<div class="paletteColor" style="background-color:<%=user.collections[i].palette[j]%>"></div>
+					
+					<!-- <br> -->
 
-				
-			<% } %> <!-- end palette[j] loop -->
+					
+				<% } %> <!-- end palette[j] loop -->
 			<!-- DELETE? -->	
 			<!-- <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
 					<input type="hidden" name="palette" value="<%= user.collections[i].id %>"/>
 					<button>Delete</button>
 				</form>  -->
 
-			</p>
+			
 		</div>
 		<br>
 		<% } %> <!-- end collection[i] loop -->

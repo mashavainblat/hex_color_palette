@@ -35,6 +35,7 @@
 
 nav{
 	padding:10px 0px;
+	border-bottom:solid 1px #ccc;
 }
 
 nav section{
@@ -116,7 +117,16 @@ h4{
 /*************  PALETTES INDEX  **************/
 /*********************************************/
 
+.paletteContent{
+	padding:20px;
+}
+
+.hexCodeValue{
+	text-transform:uppercase;
+}
+
 .paletteContainer{
 	width:33%;
 	float:left;
+	margin:20px 0px;
 }
