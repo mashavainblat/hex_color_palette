@@ -17,29 +17,34 @@
 		<a href="/palettes">Palettes</a>
 	</section>
 	<section id="signUp">
-		<a href="/signup.ejs">Sign Up</a>
+		<a>Sign Up</a>
+
+		<div id="signUpOverlay">
+			<form action="/users" method="POST" id="signUpForm">
+				<input type="text" name="username" placeholder="username">
+				<input type="text" name="email" placeholder="email">
+				<input type="text" name="password" placeholder="password"><br>
+				<button>Sign Up</button>
+			</form>
+		</div>
 	</section>
 	<section id="logIn">
-		<a href="#">Log In</a>
+		<a>Log In</a>
+
+		<div id="logInOverlay">
+			<form action="/users/login" method="POST" id="logInForm">
+				<input type="text" name="email" placeholder="email">
+				<input type="text" name="password" placeholder="password"><br>
+				<button>Log In</button>
+			</form>
+		</div>
+
 	</section>
 </nav>
 
-<div id="signUpOverlay">
-	<form action="/users" method="POST">
-		<input type="text" name="username" placeholder="username">
-		<input type="text" name="email" placeholder="email">
-		<input type="text" name="password" placeholder="password">
-		<button>Sign Up</button>
-	</form>
-</div>
 
-<div id="logInOverlay">
-	<form action="/users/login" method="POST">
-		<input type="text" name="email" placeholder="email">
-		<input type="text" name="password" placeholder="password">
-		<button>Log In</button>
-	</form>
-</div>
+
+
 
 <% for (var i = 0; i<colors.length; i++){ %>
 	<div class="hexColor" style="background-color:<%=colors[i].hex%>">

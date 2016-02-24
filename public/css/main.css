@@ -27,6 +27,18 @@
 }
 
 
+h4{
+	text-transform: uppercase;
+	font-size:1.2em;
+}
+
+.bodyCopy{
+	font-size:.9em;
+}
+
+
+
+
 /*********************************************/
 /**************    NAVIGATION   **************/
 /*********************************************/
@@ -65,27 +77,56 @@ nav a{
 	font-size:1.5em;
 }
 
-nav a:hover{
-	text-decoration: underline;
+
+/*********************************************/
+/***************     OVERLAY    **************/
+/*********************************************/
+
+#signUp{
+	position:relative;
 }
 
-
-
-
-
-
-
-
-h4{
-	text-transform: uppercase;
-	font-size:1.2em;
+#signUp #signUpOverlay, #logIn #logInOverlay{
+	display:none;
 }
 
-.bodyCopy{
-	font-size:.9em;
+#signUp:hover #signUpOverlay, #logIn:hover #logInOverlay{
+	display:block;
+	position:absolute;
+	z-index:1;
+	text-align:center;
+	background-color:#fff;
+	text-align:center;
+	padding:2em 0px;
 }
 
+#signUpForm, #logInForm{
+	background-color:#fff;
+}
 
+#signUpForm input, #logInForm input{
+
+	border:solid 1px #000;
+	padding:1em;
+	margin:5px;
+
+}
+
+#signUpForm button, #logInForm button{
+	background-color:#fff;
+	border:solid 1px #000;
+	padding:1em;
+	margin:5px;
+	width:148px;
+	max-width:100%;
+}
+
+#signUpForm button:hover, #logInForm button:hover{
+
+	background-color:#000;
+	color:#fff;
+
+}
 /*********************************************/
 /***************    USER SHOW   **************/
 /*********************************************/
@@ -100,6 +141,13 @@ h4{
 	width:33%;
 	display:inline-block;
 }
+
+
+/*********************************************/
+/**********    CREATE NEW PALETTE   **********/
+/*********************************************/
+
+
 
 #createNewPalette, #myPalettesContainer{
 	border-top:solid 1px #ccc;
@@ -119,6 +167,14 @@ h4{
 
 .instructions{
 	margin:20px 0px;
+}
+
+.instructions p{
+	margin:5px 0px;
+}
+
+#paletteNameInput{
+	margin-bottom:20px;
 }
 
 
