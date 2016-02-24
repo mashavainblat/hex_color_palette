@@ -49,12 +49,14 @@
 	<div id="myPalettesContainer">
 		<h4 class="bold"><%= user.username %>'s Palettes</h4>
 
+		<p>Check it out</p>
+
 		<% for(var i = 0; i<user.collections.length; i++){ %>
 			<div class="palette">
 				<p class="paletteName"><%= user.collections[i].name %></p>
 					<form action="/users/<%=user.id%>/<%= user.collections[i].id %>?_method=DELETE" method="POST" type="hidden">
-					<input type="hidden" value="<%= user.collections[i].id %>">
-						<button>Delete</button>
+						<input type="hidden" value="<%= user.collections[i].id %>">
+							<button>Delete</button>
 					</form>
 
 				<% for(var j=0; j<user.collections[i].palette.length; j++){ %>

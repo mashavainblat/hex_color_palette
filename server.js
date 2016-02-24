@@ -3,7 +3,6 @@
 //REQUIREMENTS
 var express = require("express");
 var app = express();
-var port = process.env.PORT || 3000;
 var bodyParser = require("body-parser");
 var methodOverride = require("method-override");
 var mongoose = require("mongoose");
@@ -12,13 +11,14 @@ var passportLocal = require("passport-local");
 var bcrypt = require("bcrypt-nodejs");
 var session = require("express-session");
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/hex_color_palette';
+var port = process.env.PORT || 3000;
 
 //colors
 var hexColors = require("./models/hex_colors.js");
 
 //CONNECT TO DB:
-mongoose.connect("mongodb://localhost/hex_color_palette");
-mongoose.connect(mongoUri);
+// mongoose.connect("mongodb://localhost/hex_color_palette");
+mongoose.connect(mongoUri)
 
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({extended:true}));
