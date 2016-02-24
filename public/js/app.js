@@ -3,10 +3,29 @@
 
 	// var hexColor = document.getElementById("hexColor");
 	// console.log(hexColor);
-		var createPaletteForm = document.getElementById("createPaletteForm");
-		var savePaletteButton = document.getElementById("savePaletteButton");
+	var createPaletteForm = document.getElementById("createPaletteForm");
+	var lineBreak = document.createElement("br");
+	// var savePaletteButton = document.getElementById("savePaletteButton");
 
-		
+
+	// CREATE PALETTE NAME INPUT
+	var paletteNameInput = document.createElement("input");
+	paletteNameInput.setAttribute("id", "paletteNameInput");
+	paletteNameInput.type="name";
+	paletteNameInput.name="name";
+	paletteNameInput.placeholder="Palette name";
+
+	// APPEND paletteNameInput TO createPaletteForm
+	createPaletteForm.appendChild(paletteNameInput);
+
+	createPaletteForm.appendChild(lineBreak);
+
+
+
+
+
+
+
 	$('.hexColor').click(function(){ 
 		console.log("you clicked " + $(this).attr('id'));
 		
@@ -20,15 +39,22 @@
 		console.log(lineBreak)
 		console.log(createPaletteForm);
 
-		var input = document.createElement("input")
-		input.setAttribute("id", "createPaletteInput");
-		input.type="color";
-		input.name="palette";
-		input.value=hexCode;
+		//ADD COLOR TO NEW PALETTE INPUT
+		var colorInput = document.createElement("input")
+		colorInput.setAttribute("id", "createPaletteInput");
+		colorInput.type="color";
+		colorInput.name="palette";
+		colorInput.value=hexCode;
 
-		
+		//DELETE COLOR FROM NEW PALETTE INPUT
+		//TO DELETE BEFORE SAVING PALETTE
+		var deleteInput = document.createElement("input");
+		deleteInput.setAttribute("id", "deleteColorInput");
+		deleteInput.type="hidden";
+		deleteInput.value=hexCode;
+
 		//insert color input as first child in createPaletteForm
-		createPaletteForm.insertBefore(input, createPaletteForm.firstChild);
+		createPaletteForm.insertBefore(colorInput, createPaletteForm.firstChild);
 		// input.appendChild(lineBreak)
 		createPaletteForm.insertBefore(lineBreak, createPaletteForm.firstChild)
 	

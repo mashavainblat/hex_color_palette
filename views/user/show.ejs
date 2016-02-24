@@ -39,21 +39,26 @@
 			<p class="bodyCopy">Add palette name</p>
 		</div>
 		<form id ="createPaletteForm" action="/users/<%= user.id %>/newcollection" method="POST">
-			<br>
-			<input type="text" name="name" placeholder="Palette name"><br>
+			<!-- <br> -->
+
+
+			<!-- <form id="deleteColorForm" action="/users/<%= user.id %>/deletecolor"> -->
+
+			<!-- PALETTE NAME -->
+			<!-- <input type="text" name="name" placeholder="Palette name"><br> -->
 			<!-- <input type="color" name="palette"> -->
 
-			<button id="savePaletteButton">Save</button><br>
+			<!-- <button id="savePaletteButton">Save</button><br> -->
 		</form>
 	</div>
 	<div id="myPalettesContainer">
 		<h4 class="bold"><%= user.username %>'s Palettes</h4>
 
-		<p>Check it out</p>
-
 		<% for(var i = 0; i<user.collections.length; i++){ %>
 			<div class="palette">
 				<p class="paletteName"><%= user.collections[i].name %></p>
+
+					<!-- DELETE PALETTE FROM USERS COLLECTION -->
 					<form action="/users/<%=user.id%>/<%= user.collections[i].id %>?_method=DELETE" method="POST" type="hidden">
 						<input type="hidden" value="<%= user.collections[i].id %>">
 							<button>Delete</button>
