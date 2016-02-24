@@ -21,6 +21,8 @@
 		input.name="palette";
 		input.value=hexCode;
 
+		
+
 		createPaletteForm.insertBefore(input, createPaletteForm.firstChild);
 		// input.appendChild(lineBreak)
 	

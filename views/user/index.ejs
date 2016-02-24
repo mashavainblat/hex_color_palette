@@ -8,7 +8,21 @@
 </head>
 <body id="index">
 
-<% include ../partials/navigation_login.ejs %>
+<%# include ../partials/navigation_login.ejs %>
+<nav>
+	<section id="logoContainer">
+		<a href="/"><img src="./img/hashtag.png"></a>
+	</section>
+	<section id="palettesContainer">
+		<a href="/palettes">Palettes</a>
+	</section>
+	<section id="signUp">
+		<a href="/signup.ejs">Sign Up</a>
+	</section>
+	<section id="logIn">
+		<a href="#">Log In</a>
+	</section>
+</nav>
 
 <div id="signUpOverlay">
 	<form action="/users" method="POST">

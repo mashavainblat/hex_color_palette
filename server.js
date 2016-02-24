@@ -39,11 +39,11 @@ require("./config/passport.js")(passport)
 
 //CONTROLLERS
 var usersController = require("./controllers/users.js");
-// var collectionController = require("./controllers/collections.js");
+var collectionController = require("./controllers/collections.js");
 var palettesController = require("./controllers/palettes.js");
 
 app.use("/users", usersController);
-// app.use("/collection", collectionController);
+app.use("/collection", collectionController);
 app.use("/palettes", palettesController);
 
 app.get("/", function(req, res){

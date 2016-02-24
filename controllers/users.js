@@ -31,7 +31,7 @@ router.get("/logout", function(req, res){
 })
 
 // SHOW GET
-router.get("/:id", function(req, res){
+router.get("/:id", isLoggedIn, function(req, res){
 	// req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
 	User.findById(req.params.id, function(error, user){
 		res.render("user/show.ejs", {colors:hexColors, user:user});
@@ -104,6 +104,13 @@ router.post("/login", passport.authenticate("local-login", {
 router.get("/", function(req, res){
 	res.render("user/index.ejs", {colors:hexColors});
 });
+
+//COLLECTION
+router.get("/:id/collection", function(req, res){
+	User.find(function(error, user){
+		res.render("user/collection.ejs", {user:user})
+	})
+})
 
 
 
