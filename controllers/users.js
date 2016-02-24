@@ -137,16 +137,18 @@ router.get("/", function(req, res){
 
 router.delete("/:uid/:cid", function(req, res){
 	console.log("delete route accessed")
-	console.log(req.params.id)
+	console.log(req.params.uid);
+	console.log(req.params.cid);
 	var id = req.params.uid;
 	var collectionId = req.params.cid;
 
-	User.update({_id:req.params.id}, {$pull:{"collections":{ _id:collectionId } }}, function(error, user){
+	User.update({_id: id}, {$pull:{"collections":{ _id: collectionId } }}, function(error, user){
 		// User.pull({}, function(error, user){
 				
 		// })
+		console.log(user);
 		console.log("hopefully deleting")
-		res.redirect("/users/" + req.params.id)
+		res.redirect("/users/" + req.params.uid)
 		// console.log(user.collections[0].palette)
 
 

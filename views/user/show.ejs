@@ -11,19 +11,6 @@
 <% include ../partials/navigation_user.ejs %>
 
 
-<!-- ALL HEX COLORS -->
-
-<script>
-
-
-// var hexColors = [<%= colors %>];
-console.log("-----")
-// console.log(<%=colors%>)
-//console.log(colors.length);
-console.log("-----")
-
-</script>
-
 <div id="hexColorsContainer">
 	<% for (var i = 0; i<colors.length; i++){ %>
 
@@ -37,8 +24,10 @@ console.log("-----")
 <div id="collectionInfo">
 	<div id="createNewPalette">
 		<h4 class="bold">Create new palette</h4>
-		<p class="bodyCopy">Click on color to add to your palette</p>
-		<p class="bodyCopy">Add palette name</p>
+		<div class="instructions">
+			<p class="bodyCopy">Click on color to add to your palette</p>
+			<p class="bodyCopy">Add palette name</p>
+		</div>
 		<form id ="createPaletteForm" action="/users/<%= user.id %>/newcollection" method="POST">
 			<input type="text" name="name" placeholder="Palette name"><br>
 			<!-- <input type="color" name="palette"> -->
@@ -52,7 +41,8 @@ console.log("-----")
 		<% for(var i = 0; i<user.collections.length; i++){ %>
 			<div class="palette">
 				<p class="paletteName"><%= user.collections[i].name %></p>
-					<form action="/users/<%= user.id %>?_method=DELETE" method="POST" type="hidden">
+					<form action="/users/<%=user.id%>/<%= user.collections[i].id %>?_method=DELETE" method="POST" type="hidden">
+					<input type="hidden" value="<%= user.collections[i].id %>">
 						<button>Delete</button>
 					</form>
 

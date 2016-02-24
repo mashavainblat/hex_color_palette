@@ -15,7 +15,8 @@
 		console.log(lineBreak)
 		console.log(createPaletteForm);
 
-		var input = document.createElement("input");
+		var input = document.createElement("input")
+		input.setAttribute("id", "createPaletteInput");
 		input.type="color";
 		input.name="palette";
 		input.value=hexCode;

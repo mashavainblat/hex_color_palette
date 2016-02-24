@@ -57,9 +57,28 @@ nav img{
 	margin:0px 20px;
 }
 
+nav a{
+	text-transform:uppercase;
+	/*font-family:"MontserratBold";*/
+	text-decoration: none;
+	color:#000;
+	font-size:1.5em;
+}
+
+nav a:hover{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
 
 h4{
 	text-transform: uppercase;
+	font-size:1.2em;
 }
 
 .bodyCopy{
@@ -72,13 +91,13 @@ h4{
 /*********************************************/
 
 #hexColorsContainer{
-	width:75%;
+	width:66%;
 	display:inline-block;
 	float:left;
 }
 
 #collectionInfo{
-	width:25%;
+	width:33%;
 	display:inline-block;
 }
 
@@ -87,6 +106,16 @@ h4{
 	padding:20px;
 }
 
+
+#createPaletteForm input#createPaletteInput{
+	border:none;
+	background:none;
+	height:50px;
+}
+
+#createNewPalette:children(){
+	margin:10px 0px;
+}
 
 
 
@@ -106,7 +135,7 @@ h4{
 
 .paletteColor{
 	width:30px;
-	height:25px;
+	height:30px;
 	float:left;
 	margin:5px 5px 0px 0px;
 }
@@ -123,6 +152,7 @@ h4{
 
 .hexCodeValue{
 	text-transform:uppercase;
+	margin-top:5px;
 }
 
 .paletteContainer{
