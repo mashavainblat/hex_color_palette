@@ -11,12 +11,14 @@ var passport = require("passport");
 var passportLocal = require("passport-local");
 var bcrypt = require("bcrypt-nodejs");
 var session = require("express-session");
+var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/hex_color_palette';
 
 //colors
 var hexColors = require("./models/hex_colors.js");
 
 //CONNECT TO DB:
 mongoose.connect("mongodb://localhost/hex_color_palette");
+mongoose.connect(mongoUri);
 
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({extended:true}));

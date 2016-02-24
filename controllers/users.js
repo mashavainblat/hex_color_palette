@@ -31,7 +31,7 @@ router.get("/logout", function(req, res){
 })
 
 // SHOW GET
-router.get("/:id", isLoggedIn, function(req, res){
+router.get("/:id", function(req, res){
 	// req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
 	User.findById(req.params.id, function(error, user){
 		res.render("user/show.ejs", {colors:hexColors, user:user});
@@ -166,16 +166,16 @@ router.delete("/:uid/:cid", function(req, res){
 
 
 //MIDDLEWARE
-function isLoggedIn(req, res, next) {
-	console.log('isLoggedIn middleware');
-	// if user is authenticated in the session, carry on
-	if (req.isAuthenticated()) {
-		return next(); 
-	// if they aren't, redirect to home page aka /user route
-	} else {
-		res.redirect('/users/' + req.user.id);
-	}
-}
+// function isLoggedIn(req, res, next) {
+// 	console.log('isLoggedIn middleware');
+// 	// if user is authenticated in the session, carry on
+// 	if (req.isAuthenticated()) {
+// 		return next(); 
+// 	// if they aren't, redirect to home page aka /user route
+// 	} else {
+// 		res.redirect('/users/' + req.user.id);
+// 	}
+// }
 
 
 module.exports = router;

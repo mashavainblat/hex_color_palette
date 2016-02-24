@@ -3,15 +3,20 @@
 
 	// var hexColor = document.getElementById("hexColor");
 	// console.log(hexColor);
+		var createPaletteForm = document.getElementById("createPaletteForm");
+		var savePaletteButton = document.getElementById("savePaletteButton");
 
+		
 	$('.hexColor').click(function(){ 
 		console.log("you clicked " + $(this).attr('id'));
 		
 		//HEX CODE OF CLICKED COLOR
 		var hexCode = $(this).attr('id');
-		var createPaletteForm = document.getElementById("createPaletteForm");
-		var savePaletteButton = document.getElementById("savePaletteButton");
+
+		//getting form 
+
 		var lineBreak = document.createElement("br");
+
 		console.log(lineBreak)
 		console.log(createPaletteForm);
 
@@ -22,9 +27,10 @@
 		input.value=hexCode;
 
 		
-
+		//insert color input as first child in createPaletteForm
 		createPaletteForm.insertBefore(input, createPaletteForm.firstChild);
 		// input.appendChild(lineBreak)
+		createPaletteForm.insertBefore(lineBreak, createPaletteForm.firstChild)
 	
 	}); 
 

@@ -15,8 +15,8 @@
 	<section id="palettesContainer">
 		<a href="/palettes">Palettes</a>
 	</section>
-	<section id="collection">
-		<a href="/collection">Collection</a>
+	<section id="logout">
+		<a href="/users/logout">Logout</a>
 	</section>
 </nav>
 
@@ -39,6 +39,7 @@
 			<p class="bodyCopy">Add palette name</p>
 		</div>
 		<form id ="createPaletteForm" action="/users/<%= user.id %>/newcollection" method="POST">
+			<br>
 			<input type="text" name="name" placeholder="Palette name"><br>
 			<!-- <input type="color" name="palette"> -->
 
@@ -76,10 +77,6 @@
 		<% } %> <!-- end collection[i] loop -->
 
 	</div> <!-- END myPalettesContainer -->
-
-	<div class="logOut">
-		<a href="/users/logout">Log out</a>
-	</div>
 </div>
 
 </body>
