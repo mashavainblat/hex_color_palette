@@ -61,7 +61,7 @@
 					<!-- DELETE PALETTE FROM USERS COLLECTION -->
 					<form action="/users/<%=user.id%>/<%= user.collections[i].id %>?_method=DELETE" method="POST" type="hidden">
 						<input type="hidden" value="<%= user.collections[i].id %>">
-							<button>Delete</button>
+							<button id="deletePaletteButton">Delete Palette</button>
 					</form>
 
 				<% for(var j=0; j<user.collections[i].palette.length; j++){ %>
@@ -84,7 +84,7 @@
 		<% } %> <!-- end collection[i] loop -->
 
 	</div> <!-- END myPalettesContainer -->
-</div>
+</div><br>
 
 </body>
 </html>

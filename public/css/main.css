@@ -36,7 +36,18 @@ h4{
 	font-size:.9em;
 }
 
+.hexColorCode{
+	padding:5px;
+	/*display:none;*/
+}
 
+.hexColor:hover{
+	cursor: pointer;
+}
+
+.hexColor:target .hexColorCode{
+	display:block;
+}
 
 /*********************************************/
 /**************    NAVIGATION   **************/
@@ -51,7 +62,7 @@ nav{
 
 nav section{
 	display:inline-block;
-	width:33%;
+	width:32%;
 }
 
 nav section:nth-child(2), nav section:nth-child(3), nav section:nth-child(4){
@@ -141,6 +152,10 @@ nav a{
 	display:inline-block;
 }
 
+#userShow .hexColor{
+	height:6em;
+}
+
 
 /*********************************************/
 /**********    CREATE NEW PALETTE   **********/
@@ -180,9 +195,33 @@ nav a{
 	/*float:left;*/
 }
 
+#paletteNameInput{
+	margin-right:10px;
+}
+
+#savePaletteButton, #deletePaletteButton{
+	border:solid .5px;
+}
+
+#savePaletteButton, .deleteColorButton, #deletePaletteButton{
+	background-color: #fff;
+	font-size:.8em;
+	padding:0px 5px;
+}
+
 .deleteColorButton{
-	border:solid 1px #000;
-	padding:5px;
+	text-decoration:underline;
+}
+
+.deleteColorButton:hover{
+	cursor: pointer;
+}
+
+#savePaletteButton:hover, #deletePaletteButton:hover{
+	background-color:#ddd;
+	/*color:#fff;*/
+	border:solid .5px #000;
+	cursor: pointer;
 }
 
 
@@ -226,4 +265,113 @@ nav a{
 	width:16.5%;
 	float:left;
 	margin:20px 0px;
+}
+
+
+
+
+
+
+/*********************************************/
+/*************   MEDIA QUERIES  **************/
+/*********************************************/
+
+
+
+/***************************/
+/* USER SHOW PAGE*/
+/***************************/
+
+@media screen and (max-width: 1330px){
+	#userShow .hexColor{
+		font-size:.8em;
+	}
+}
+
+@media screen and (max-width: 1100px){
+	#userShow .hexColor{
+		width:20%;
+		height:11em;
+	}
+}
+
+@media screen and (max-width: 900px){
+	#userShow .hexColor{
+		height:9em;
+	}
+}
+
+@media screen and (max-width: 767px){
+	#userShow .hexColor{
+		height:8em;
+	}
+}
+
+@media screen and (max-width: 590px){
+	#userShow .hexColor{
+		height:6em;
+	}
+
+	h4{
+		font-size:1em;
+	}
+
+	.bodyCopy{
+		font-size:.8em;
+	}
+}
+
+@media screen and (max-width: 550px){
+	#userShow .hexColor{
+		height:8em;
+	}
+
+	#userShow{
+		display:block;
+	}
+
+	#userShow #hexColorsContainer{
+		width:100%;
+		float:right;
+		display:block;
+	}
+
+	#collectionInfo{
+		position:absolute;
+		background-color:#fff;
+		width:100%;
+		float:left;
+		left:0;
+		top:73px;
+		display:block;
+
+	}
+}
+
+@media screen and (max-width: 480px){
+	nav a{
+		font-size:1.3em;
+	}
+}
+
+@media screen and (max-width: 360px){
+	nav a{
+		font-size:1em;
+	}
+
+	nav img{
+		width:25px;
+	}
+
+	#collectionInfo{
+		top:54px;
+	}
+
+	#savePaletteButton, #deletePaletteButton, .deleteColorButton{
+		font-size:.7em;
+	}
+
+	.hexColorCode{
+		font-size:.9em;
+	}
 }
