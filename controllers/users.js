@@ -114,6 +114,11 @@ router.get("/:id/collection", function(req, res){
 
 
 
+//DELETE COLOR
+router.get("/:id/deletecolor", function(req, res){
+	res.redirect("/users/" + req.params.id)
+})
+
 // 
 
 //DESTROY
@@ -130,18 +135,6 @@ router.get("/:id/collection", function(req, res){
 // 	});
 // });
 
-// router.delete('/:uid/:cid', function(req,res){
-// 	User.findById(req.params.uid,function(err,data){
-
-// 		data.collections.forEach(function(i){
-// 			if(i.id === req.params.cid){
-// 				i.pop()
-// 			}
-// 		})
-// 		data.save(function(){});
-// 	});
-// });
-
 router.delete("/:uid/:cid", function(req, res){
 	console.log("delete route accessed")
 	console.log(req.params.uid);
@@ -150,8 +143,16 @@ router.delete("/:uid/:cid", function(req, res){
 	var collectionId = req.params.cid;
 
 	User.update({_id: id}, {$pull:{"collections":{ _id: collectionId } }}, function(error, user){
-		// User.pull({}, function(error, user){
 				
+
+		
+		// collection.findbyidandremove
+		//loop through collection
+		//if (user.collection.id == req.body.collection_id){
+			// collection findbyidandremove(function(){
+				//save array new collections model
+			// })
+		// }
 		// })
 		console.log(user);
 		console.log("hopefully deleting")

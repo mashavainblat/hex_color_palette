@@ -41,34 +41,22 @@
 			colorInput.name="palette";
 			colorInput.value=hexCode;
 
+			var hexColorCode = document.createTextNode(hexCode)
+			colorInput.appendChild(hexColorCode)
+
 			console.log(colorInput);
 
 			//insert color input as first child in createPaletteForm
 			addColorRemoveColorDiv.appendChild(colorInput);
 
+
+
 			//DELETE COLOR BEFORE SAVING
-			//CREATE DELETE FORM
-			var deleteColorForm = document.createElement("form");
-			deleteColorForm.setAttribute("id", "deleteColorForm");
-			deleteColorForm.action="/users/userID/deletecolor?_method=DELETE";
-			deleteColorForm.method="POST";
+			var deleteColorButton = document.createElement("span");
+			deleteColorButton.setAttribute("class", "deleteColorButton");
+			deleteColorButton.innerHTML += "Delete";
 
-				//DELETE INPUT
-				var deleteColorInput = document.createElement("input");
-				deleteColorInput.setAttribute("id", "deleteColorInput");
-				deleteColorInput.type="hidden";
-				deleteColorInput.value=hexCode;
-
-				deleteColorForm.appendChild(deleteColorInput);
-					
-				//DELETE COLOR BUTTON
-				var deleteColorButton = document.createElement("button");
-				deleteColorButton.setAttribute("id", "deleteColorButton");
-				deleteColorButton.innerHTML += "Delete";
-
-				deleteColorForm.appendChild(deleteColorButton);
-
-			console.log(deleteColorForm);
+			addColorRemoveColorDiv.appendChild(deleteColorButton);
 
 			//add line break between color divs
 			addColorRemoveColorDiv.appendChild(lineBreak);
@@ -76,6 +64,7 @@
 		createPaletteForm.appendChild(addColorRemoveColorDiv);
 
 		createPaletteForm.appendChild(lineBreak);
+		deleteButtonInit();
 		
 	});
 
@@ -85,7 +74,6 @@
  	savePaletteButton.innerHTML = "Save palette";
 
  	createPaletteForm.appendChild(savePaletteButton);
-
 
 
 
@@ -141,3 +129,19 @@
 			//get createNewPalette div to append clicked colors to form
 
 }); //ends document.ready
+
+
+var deleteButtons = document.getElementsByClassName('deleteColorButton');
+// console.log(deleteButtons);
+
+//DELETE addColorRemoveColorDiv 
+// $(".deleteColorButton").click(function(){
+// 	console.log("you clicked");
+// });
+var deleteButtonInit = function () {
+	for (var i = 0; i < deleteButtons.length; i++){
+		deleteButtons[i].addEventListener("click", function (){
+			$(this).closest("div").remove();
+		});
+	}
+}
