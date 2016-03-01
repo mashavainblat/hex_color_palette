@@ -22,14 +22,13 @@
 
 
 <div id="hexColorsContainer">
+
 	<% for (var i = 0; i<colors.length; i++){ %>
-
-
-
 		<div id="<%=colors[i].hex%>" class="hexColor" style="background-color:<%=colors[i].hex%>" >
 			<p class="hexColorCode"><%=colors[i].hex%></p> <!-- NEED THIS TO BE ACCESSED IN CSS? -->
 		</div>
 	<% } %>
+
 </div>
 <div id="collectionInfo">
 	<div id="createNewPalette">
@@ -39,16 +38,7 @@
 			<p class="bodyCopy">Add palette name</p>
 		</div>
 		<form id ="createPaletteForm" action="/users/<%= user.id %>/newcollection" method="POST">
-			<!-- <br> -->
-
-
-			<!-- <form id="deleteColorForm" action="/users/<%= user.id %>/deletecolor"> -->
-
-			<!-- PALETTE NAME -->
-			<!-- <input type="text" name="name" placeholder="Palette name"><br> -->
-			<!-- <input type="color" name="palette"> -->
-
-			<!-- <button id="savePaletteButton">Save</button><br> -->
+			<!-- COLOR INPUT FROM JS -->
 		</form>
 	</div>
 	<div id="myPalettesContainer">

@@ -44,10 +44,30 @@
 			var hexColorCode = document.createTextNode(hexCode)
 			colorInput.appendChild(hexColorCode)
 
-			console.log(colorInput);
+			// console.log(colorInput);
 
-			//insert color input as first child in createPaletteForm
+			//append color input to addColorRemoveColorDiv
 			addColorRemoveColorDiv.appendChild(colorInput);
+			
+
+			// n = document.createElement("div");
+			// n.text("Hey");
+			// addColorRemoveColorDiv.appendChild(n);
+
+
+			//add text node with hex code
+			// insertHexCodeIntoInput();
+			// var inputHexCode = document.getElementById("createPaletteInput");
+			// console.log(inputHexCode)
+			// var hexCodeColorInput = document.createTextNode()
+			
+			var hexColorInfo = document.createElement("p");
+			hexColorInfo.setAttribute("id", "inputHexColorCode");
+			var createdHexCode = document.createTextNode(hexCode);
+			hexColorInfo.appendChild(createdHexCode);
+			// console.log(hexColorInfo)
+			addColorRemoveColorDiv.appendChild(hexColorInfo)
+
 
 
 
@@ -145,3 +165,15 @@ var deleteButtonInit = function () {
 		});
 	}
 }
+
+function insertHexCodeIntoInput(){
+	var inputHexCode = document.getElementById("createPaletteInput").value;
+	console.log(inputHexCode)
+}
+
+
+
+
+
+
+
