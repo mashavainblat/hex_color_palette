@@ -163,7 +163,6 @@ nav a{
 /**********************************************************************/
 
 #hexColorsContainer{
-	width:66%;
 	display:inline-block;
 	float:left;
 }
@@ -274,7 +273,7 @@ nav a{
 
 .paletteContent{
 	padding:20px;
-	height:150px;
+	height:200px;
 	overflow: auto;
 }
 
@@ -284,9 +283,9 @@ nav a{
 }
 
 .paletteContainer{
-	width:16.5%;
 	float:left;
 	margin:20px 0px;
+	height:260px;
 }
 
 h4.paletteName{

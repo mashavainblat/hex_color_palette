@@ -14,44 +14,42 @@
 <body id="palettesIndex" class="container">
 
 <div class="row">
-<div class="col-md-3"><p>please work</div>
-<div class="col-md-3"><p>please work</div>
-<div class="col-md-3"><p>please work</div>
+	<nav>
+		<section id="logoContainer" class="col-md-4">
+			<% if(sess.user){ %>
+				<a href="/users/<%= sess.user._id %>" ><img src="../img/hashtag.png"></a>
+			<% } else { %>
+				<a href="/users/"><img src="../img/hashtag.png"></a>
+			<% } %>
+		</section>
+		<section id="palettesContainer" class="col-md-4">
+			<a href="/palettes">Palettes</a>
+		</section>
+		<section id="logout" class="col-md-4">
+			<a href="/users/logout">Logout</a>
+		</section>
+	</nav>
 </div>
 
-<nav>
-	<section id="logoContainer">
-		<% if(sess.user){ %>
-			<a href="/users/<%= sess.user._id %>" ><img src="../img/hashtag.png"></a>
-		<% } else { %>
-			<a href="/users/"><img src="../img/hashtag.png"></a>
-		<% } %>
-	</section>
-	<section id="palettesContainer">
-		<a href="/palettes">Palettes</a>
-	</section>
-	<section id="logout">
-		<a href="/users/logout">Logout</a>
-	</section>
-</nav>
-
 <!-- <br> -->
-<% for (var i=0; i<palettes.length;i++){ %>
-	<div class="paletteContainer">
-	
-		<h4 class="paletteName"><%= palettes[i].name %></h4>
-		<div class="paletteContent">
-			<% for (var j=0; j<palettes[i].palette.length;j++){ %>
-				
-				<div class="palette">
-					<div class="paletteColor" style="background-color:<%= palettes[i].palette[j] %>"></div>
-					<p class="bodyCopy hexCodeValue"><%= palettes[i].palette[j] %></p>
-				</div>
-			<% } %>
-		</div>
+<div class="row">
+	<% for (var i=0; i<palettes.length;i++){ %>
+		<div class="paletteContainer col-md-2 col-sm-3 cl-xs-6">
+		
+			<h4 class="paletteName"><%= palettes[i].name %></h4>
+			<div class="paletteContent">
+				<% for (var j=0; j<palettes[i].palette.length;j++){ %>
+					
+					<div class="palette">
+						<div class="paletteColor" style="background-color:<%= palettes[i].palette[j] %>"></div>
+						<p class="bodyCopy hexCodeValue"><%= palettes[i].palette[j] %></p>
+					</div>
+				<% } %>
+			</div>
 
-	</div>
-<% } %>
+		</div>
+	<% } %>
+</div>
 </br>
 
 
