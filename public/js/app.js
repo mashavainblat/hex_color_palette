@@ -3,6 +3,11 @@
 
 	// var hexColor = document.getElementById("hexColor");
 	// console.log(hexColor);
+
+	///////////////////////////////////////////////////
+	// createPaletteForm inputs appended to show.ejs //
+	///////////////////////////////////////////////////
+
 	var createPaletteForm = document.getElementById("createPaletteForm");
 	var lineBreak = document.createElement("br");
 
@@ -18,6 +23,10 @@
 
 	// APPEND A LINE BREAK
 	createPaletteForm.appendChild(lineBreak);
+
+	//////////////////////////////////////////////////
+	// END OF createPaletteForm
+	//////////////////////////////////////////////////
 
 
 	// ONCLICK ADD COLOR TO NEW COLLECTION
