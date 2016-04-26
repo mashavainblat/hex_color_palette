@@ -12,6 +12,7 @@ var bcrypt = require("bcrypt-nodejs");
 var session = require("express-session");
 var mongoUri = process.env.MONGOLAB_URI || 'mongodb://localhost/hex_color_palette';
 var port = process.env.PORT || 3000;
+var sess;
 
 //colors
 var hexColors = require("./models/hex_colors.js");

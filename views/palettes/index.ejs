@@ -9,7 +9,11 @@
 
 <nav>
 	<section id="logoContainer">
-		<a href="/users/"><img src="../img/hashtag.png"></a>
+		<% if(sess.user){ %>
+			<a href="/users/<%= sess.user._id %>" ><img src="../img/hashtag.png"></a>
+		<% } else { %>
+			<a href="/users/"><img src="../img/hashtag.png"></a>
+		<% } %>
 	</section>
 	<section id="palettesContainer">
 		<a href="/palettes">Palettes</a>
@@ -18,7 +22,6 @@
 		<a href="/users/logout">Logout</a>
 	</section>
 </nav>
-
 
 <% for (var i=0; i<palettes.length;i++){ %>
 	<div class="paletteContainer">

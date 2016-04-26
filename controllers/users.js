@@ -9,6 +9,9 @@ var hexColors = require("../models/hex_colors.js");
 
 //INDEX GET
 router.get("/", function(req, res){
+	sess = req.session;
+	console.log("====================");
+	console.log("getting home");
 	res.locals.login = req.isAuthenticated();
 	User.find(function(error, users){
 		res.render("user/index.ejs", {colors:hexColors, users:users});		
@@ -30,9 +33,16 @@ router.get("/logout", function(req, res){
 	res.redirect("/users");
 })
 
+
+
+
+
 // SHOW GET
 router.get("/:id", function(req, res){
 	// req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
+	sess = req.session;
+	sess.user = req.user;
+	console.log("setting user: " + sess.user)
 	User.findById(req.params.id, function(error, user){
 		res.render("user/show.ejs", {colors:hexColors, user:user});
 	})
@@ -40,6 +50,7 @@ router.get("/:id", function(req, res){
 
 //CREATE PALETTE IN COLLECTION
 router.post("/:id/newcollection", function(req, res){
+	sess = req.session;
 	//after user is created, find by ID
 	User.findById(req.params.id, function(error, user){
 		//new collection = req.body of "create new palette"
@@ -50,7 +61,11 @@ router.post("/:id/newcollection", function(req, res){
 			console.log("========================");
 			console.log(collection.palette)
 			console.log("========================");
+
+			// pushing newly saved collection into user.collections array
 			user.collections.push(collection);
+
+			
 			collections.palette.push(collection.palette);
 			user.save(function(error){
 				res.redirect("/users/" + req.params.id);
@@ -94,6 +109,7 @@ router.post("/", passport.authenticate("local-signup", {
 router.post("/login", passport.authenticate("local-login", {
 	failureRedirect: "/users"}),
 	function(req, res){
+		console.log("logging in as: " + req.user.username)
 		res.redirect("/users/" + req.user.id)
 	}
 );
@@ -102,11 +118,13 @@ router.post("/login", passport.authenticate("local-login", {
 
 //NEW GET
 router.get("/", function(req, res){
+	sess = req.session;
 	res.render("user/index.ejs", {colors:hexColors});
 });
 
 //COLLECTION
 router.get("/:id/collection", function(req, res){
+	sess = req.session;
 	User.find(function(error, user){
 		res.render("user/collection.ejs", {user:user})
 	})
@@ -116,6 +134,7 @@ router.get("/:id/collection", function(req, res){
 
 //DELETE COLOR
 router.get("/:id/deletecolor", function(req, res){
+	sess = req.session;
 	res.redirect("/users/" + req.params.id)
 })
 
@@ -136,6 +155,8 @@ router.get("/:id/deletecolor", function(req, res){
 // });
 
 router.delete("/:uid/:cid", function(req, res){
+	sess = req.session;
+
 	console.log("delete route accessed")
 	console.log(req.params.uid);
 	console.log(req.params.cid);
