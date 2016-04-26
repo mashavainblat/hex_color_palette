@@ -42,7 +42,9 @@ router.get("/:id", function(req, res){
 	// req.params.id == req.user.id ? res.locals.usertrue = true : res.locals.usertrue = false;
 	sess = req.session;
 	sess.user = req.user;
-	console.log("setting user: " + sess.user)
+	console.log("================================");
+	console.log("/:id - setting user: " + sess.user)
+	console.log("================================");
 	User.findById(req.params.id, function(error, user){
 		res.render("user/show.ejs", {colors:hexColors, user:user});
 	})
@@ -91,16 +93,6 @@ router.post("/", passport.authenticate("local-signup", {
 		res.redirect("/users/" + req.user.id)
 	});
 
-// router.post("/", function(req, res){
-// 	//create new user based on input content aka req.body
-// 	User.create(req.body, (function(error, user){
-// 		console.log("USER CREATED");
-// 		console.log("The current user's name is: " + user.username);
-// 		//redirect to users show page
-// 		res.redirect("/users/" + user.id)
-// 	}))
-// });
-
 
 // ==============================
 // 			   LOGIN
@@ -109,7 +101,9 @@ router.post("/", passport.authenticate("local-signup", {
 router.post("/login", passport.authenticate("local-login", {
 	failureRedirect: "/users"}),
 	function(req, res){
-		console.log("logging in as: " + req.user.username)
+		console.log("=============================");
+		console.log("/login logging in as: " + req.user.username);
+		console.log("=============================");
 		res.redirect("/users/" + req.user.id)
 	}
 );

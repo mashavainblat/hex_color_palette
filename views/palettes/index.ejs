@@ -23,11 +23,12 @@
 	</section>
 </nav>
 
+<!-- <br> -->
 <% for (var i=0; i<palettes.length;i++){ %>
 	<div class="paletteContainer">
 	
+		<h4 class="paletteName"><%= palettes[i].name %></h4>
 		<div class="paletteContent">
-			<h4 class="paletteName"><%= palettes[i].name %></h4>
 			<% for (var j=0; j<palettes[i].palette.length;j++){ %>
 				
 				<div class="palette">
@@ -39,6 +40,7 @@
 
 	</div>
 <% } %>
+</br>
 
 
 </body>

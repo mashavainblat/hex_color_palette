@@ -39,6 +39,9 @@
 		</div>
 		<form id ="createPaletteForm" action="/users/<%= user.id %>/newcollection" method="POST">
 			<!-- COLOR INPUT FROM JS -->
+			<!-- FROM JS TO CUSTOMIZE FORM ATTRIBUTES -->
+			<!-- SUCH AS input type, name, etc -->
+			<!-- clicked colors get appended to this form -->
 		</form>
 	</div>
 	<div id="myPalettesContainer">
@@ -46,6 +49,7 @@
 
 		<% for(var i = 0; i<user.collections.length; i++){ %>
 			<div class="palette">
+			</br>
 				<p class="paletteName"><%= user.collections[i].name %></p>
 
 					<!-- DELETE PALETTE FROM USERS COLLECTION -->
@@ -56,17 +60,10 @@
 
 				<% for(var j=0; j<user.collections[i].palette.length; j++){ %>
 
-					<div class="paletteColor" style="background-color:<%=user.collections[i].palette[j]%>"></div>
-					
-					<!-- <br> -->
+						<div class="paletteColor" style="background-color:<%=user.collections[i].palette[j]%>"></br></div>
 
 					
 				<% } %> <!-- end palette[j] loop -->
-			<!-- DELETE? -->	
-			<!-- <form action="/users/<%= user.id %>?_method=DELETE" method="POST">
-					<input type="hidden" name="palette" value="<%= user.collections[i].id %>"/>
-					<button>Delete</button>
-				</form>  -->
 
 			
 		</div>
