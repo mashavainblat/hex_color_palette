@@ -26,6 +26,10 @@ body.container{
 	margin-right:0px;
 }
 
+.noPadding{
+	padding:0px;
+}
+
 .hexColor, .indexHexColor{
 	height:8.5em;
 	display:inline-block;
@@ -137,3 +141,151 @@ nav a:hover{
 	background-color:#000;
 	color:#fff;
 }
+
+
+
+/**********************************************************************/
+/**********************************************************************/
+/***************              USER SHOW                  **************/
+/**********************************************************************/
+/**********************************************************************/
+
+#hexColorsContainer{
+	display:inline-block;
+	float:left;
+}
+
+#collectionInfo{
+	display:inline-block;
+	width:100%;
+}
+
+#userShow .hexColor{
+	height:6em;
+}
+
+/*********************************************/
+/**********    CREATE NEW PALETTE   **********/
+/*********************************************/
+
+
+
+#createNewPalette, #myPalettesContainer{
+	border-top:solid 1px #ccc;
+	padding:20px;
+}
+
+
+#createPaletteForm input#createPaletteInput{
+	border:none;
+	background:none;
+	height:50px;
+}
+
+#createNewPalette:children(){
+	margin:10px 0px;
+}
+
+.instructions{
+	margin:20px 0px;
+}
+
+.instructions p{
+	margin:5px 0px;
+}
+
+#paletteNameInput{
+	margin-bottom:20px;
+}
+
+#createPaletteInput{
+	/*float:left;*/
+}
+
+#paletteNameInput{
+	margin-right:10px;
+}
+
+#savePaletteButton, #deletePaletteButton{
+	border:solid .5px;
+}
+
+#savePaletteButton, .deleteColorButton, #deletePaletteButton{
+	background-color: #fff;
+	font-size:.8em;
+	padding:0px 5px;
+}
+
+.deleteColorButton{
+	text-decoration:underline;
+}
+
+.deleteColorButton:hover{
+	cursor: pointer;
+}
+
+#savePaletteButton:hover, #deletePaletteButton:hover{
+	background-color:#ddd;
+	/*color:#fff;*/
+	border:solid .5px #000;
+	cursor: pointer;
+}
+
+
+/*********************************************/
+/************** USER SHOW HEXES **************/
+/*********************************************/
+
+.selectedHex{
+	width:20px;
+	height:20px;
+}
+
+.palette{
+	display:block;
+	padding:10px 10px 10px 0px;
+}
+
+.paletteColor{
+	width:30px;
+	height:30px;
+	float:left;
+	margin:5px 5px 0px 0px;
+}
+
+
+
+
+/* MEDIA QUERIES*/
+/*********************************************************/
+
+@media screen and (max-width:767px){
+	
+	/* NAV */
+	/******************************/
+
+
+	/* BODY */
+	/******************************/	
+	#index .indexHexColor{
+		height:2em;
+		padding:2px;
+	}
+
+	#index p{
+		margin:0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

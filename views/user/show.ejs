@@ -6,34 +6,38 @@
     <script type="text/javascript" src="../js/vendor/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 
     <link type="text/css" rel="stylesheet" href="../js/vendor/bootstrap-3.3.5-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/styles.css">
 	
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="../js/app.js"></script>
 </head>
 <body id="userShow" class="container">
 
-<div class="row">
+<div class="row noMargin">
 	<nav>
-		<section id="logoContainer" class="col-md-4 col-sm-4">
-			<a href="/users/"><img src="../img/hashtag.png"></a>
+		<section id="logoContainer" class="col-md-4 col-sm-4 col-xs-4 noPadding">
+			<% if(sess.user){ %>
+				<a href="/users/<%= sess.user._id %>" ><img src="../img/hashtag.png"></a>
+			<% } else { %>
+				<a href="/users/"><img src="../img/hashtag.png"></a>
+			<% } %>
 		</section>
-		<section id="palettesContainer" class="col-md-4 col-sm-4">
+		<section id="palettesContainer" class="navTitles col-md-4 col-sm-4 col-xs-4 noPadding">
 			<a href="/palettes">Palettes</a>
 		</section>
-		<section id="logout" class="col-md-4 col-sm-4">
+		<section id="logout" class="navTitles col-md-4 col-sm-4 col-xs-4 noPadding">
 			<a href="/users/logout">Logout</a>
 		</section>
 	</nav>
 </div>
 
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-8 col-sm-8 col-xs-12 noPadding">
 		<div id="hexColorsContainer">
 
-			<div class="row">
+			<div class="row noMargin">
 				<% for (var i = 0; i<colors.length; i++){ %>
-					<div id="<%=colors[i].hex%>" class="hexColor col-md-1" style="background-color:<%=colors[i].hex%>" >
+					<div id="<%=colors[i].hex%>" class="hexColor col-md-1 col-sm-2 col-xs-12" style="background-color:<%=colors[i].hex%>" >
 						<p class="hexColorCode"><%=colors[i].hex%></p> <!-- NEED THIS TO BE ACCESSED IN CSS? -->
 					</div>
 				<% } %>
@@ -41,7 +45,7 @@
 
 		</div>
 	</div>
-	<div class="col-md-4-">
+	<div class="col-md-4 col-sm-4 col-xs-12 noPadding">
 		<div id="collectionInfo">
 			<div id="createNewPalette">
 				<h4 class="bold">Create new palette</h4>

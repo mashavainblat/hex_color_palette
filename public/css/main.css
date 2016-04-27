@@ -299,6 +299,20 @@ h4.paletteName{
 /*********************************************/
 
 
+/***************************/
+/* INDEX PAGE*/
+/***************************/
+/*@media screen and (max-width: 767px){
+	#index .indexHexColor{
+		height:2em;
+		padding:2px;
+	}
+
+	#index p{
+		margin:0px;
+	}
+}*/
+
 
 /***************************/
 /* USER SHOW PAGE*/
@@ -326,6 +340,15 @@ h4.paletteName{
 @media screen and (max-width: 767px){
 	#userShow .hexColor{
 		height:8em;
+	}
+
+	#index .indexHexColor{
+		height:2em;
+		padding:2px;
+	}
+
+	#index p{
+		margin:0px;
 	}
 }
 
