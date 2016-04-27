@@ -25,9 +25,38 @@
 		<section id="palettesContainer" class="navTitles col-md-4">
 			<a href="/palettes">Palettes</a>
 		</section>
-		<section id="logout" class="navTitles col-md-4">
-			<a href="/users/logout">Logout</a>
-		</section>
+
+		<% if(sess.user){ %>
+			<section id="logout" class="navTitles col-md-4">
+				<a href="/users/logout">Logout</a>
+			</section>
+		<% } else { %>
+			<section id="signUp" class="navTitles col-md-2 col-sm-2 col-xs-6">
+				<a>Sign Up</a>
+
+				<div id="signUpOverlay">
+					<form action="/users" method="POST" id="signUpForm">
+						<input type="text" name="username" placeholder="username">
+						<input type="text" name="email" placeholder="email">
+						<input type="password" name="password" placeholder="password"><br>
+						<button>Sign Up</button>
+					</form>
+				</div>
+			</section>
+
+			<section id="logIn" class="navTitles col-md-2 col-sm-2 col-xs-6">
+				<a>Log In</a>
+
+				<div id="logInOverlay">
+					<form action="/users/login" method="POST" id="logInForm">
+						<input type="text" name="email" placeholder="email">
+						<input type="password" name="password" placeholder="password"><br>
+						<button>Log In</button>
+					</form>
+				</div>
+
+			</section>
+		<% } %>
 	</nav>
 </div>
 

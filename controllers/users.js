@@ -10,6 +10,7 @@ var hexColors = require("../models/hex_colors.js");
 //INDEX GET
 router.get("/", function(req, res){
 	sess = req.session;
+	sess.user = req.user;
 	console.log("====================");
 	console.log("getting home");
 	res.locals.login = req.isAuthenticated();
@@ -53,6 +54,7 @@ router.get("/:id", function(req, res){
 //CREATE PALETTE IN COLLECTION
 router.post("/:id/newcollection", function(req, res){
 	sess = req.session;
+	sess.user = req.user;
 	//after user is created, find by ID
 	User.findById(req.params.id, function(error, user){
 		//new collection = req.body of "create new palette"
@@ -113,12 +115,14 @@ router.post("/login", passport.authenticate("local-login", {
 //NEW GET
 router.get("/", function(req, res){
 	sess = req.session;
+	sess.user = req.user;
 	res.render("user/index.ejs", {colors:hexColors});
 });
 
 //COLLECTION
 router.get("/:id/collection", function(req, res){
 	sess = req.session;
+	sess.user = req.user;
 	User.find(function(error, user){
 		res.render("user/collection.ejs", {user:user})
 	})
@@ -150,7 +154,7 @@ router.get("/:id/deletecolor", function(req, res){
 
 router.delete("/:uid/:cid", function(req, res){
 	sess = req.session;
-
+	sess.user = req.user;
 	console.log("delete route accessed")
 	console.log(req.params.uid);
 	console.log(req.params.cid);
