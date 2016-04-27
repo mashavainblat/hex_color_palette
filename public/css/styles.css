@@ -253,11 +253,50 @@ nav a:hover{
 	margin:5px 5px 0px 0px;
 }
 
+#userShow #hexColorsContainer p{
+	margin-left:4px;
+}
+
+
+
+/**********************************************************************/
+/**********************************************************************/
+/***************             PALETTES INDEX              **************/
+/**********************************************************************/
+/**********************************************************************/
+
+.paletteContent{
+	padding:20px;
+	height:200px;
+	overflow: auto;
+}
+
+.hexCodeValue{
+	text-transform:uppercase;
+	margin-top:10px;
+}
+
+.paletteContainer{
+	float:left;
+	margin:20px 0px;
+	height:260px;
+}
+
+h4.paletteName{
+	padding-left:20px;
+}
 
 
 
 /* MEDIA QUERIES*/
 /*********************************************************/
+
+@media screen and (min-width:992px){
+	#userShow #hexColorsContainer p{
+		font-size:1vmax;
+	}
+}
+
 
 @media screen and (max-width:767px){
 	
@@ -274,6 +313,14 @@ nav a:hover{
 
 	#index p{
 		margin:0;
+	}
+
+	#userShow .hexColor{
+		height:2em;
+	}
+
+	#userShow #hexColorsContainer p{
+		margin-top:4px;
 	}
 }
 
